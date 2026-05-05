@@ -1,0 +1,23 @@
+[
+    {
+        "source_url": "https://pubmed.ncbi.nlm.nih.gov/37061324/",
+        "source_type": "pubmed",
+        "author": [
+            "John Iceland",
+            "Eric Silver",
+            "Kerby Goff"
+        ],
+        "published_date": "2023",
+        "language": "en",
+        "region": "Unknown",
+        "topic_tags": [
+            "AI",
+            "research"
+        ],
+        "trust_score": 0.88,
+        "content_chunks": [
+            "For whom is patriotism blind? Examining the roles of moral intuitions and system justification.. Patriotism defines one's attachment and identification to a broad political community. We examine how levels of patriotism are shaped by beliefs about the fairness of institutions, termed system justification, and people's moral intuitions. Using data from a 2021 YouGov survey, we find that system justification and \"binding\" moral intuitions that prioritize the cohesion of social groups both lead to greater patriotism. Notably, we found a moderating effect of moral intuitions on system justification. Strong binding intuitions reduced the effect of system justification, indicative of blind patriotism, where some people are patriotic even if they perceive the system as unfair. Strong \"individualizing\" intuitions, which prioritize fairness and",
+            "protection from harm, increased the effect of system justification. This is consistent with the notion of constructive patriotism, where patriotism among people with strong individualizing intuitions is affected by whether they believe the country is living up to its fairness ideals. We extend prior research on patriotism and system justification by showing the vitally important way that moral intuitions moderate the effects of system justification."
+        ]
+    }
+]

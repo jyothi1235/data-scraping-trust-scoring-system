@@ -1,0 +1,32 @@
+[
+    {
+        "source_url": "https://www.youtube.com/watch?v=aircAruvnKk",
+        "source_type": "youtube",
+        "author": "YouTube Channel",
+        "published_date": "Unknown",
+        "language": "unknown",
+        "region": "Unknown",
+        "topic_tags": [
+            "AI"
+        ],
+        "trust_score": 0.57,
+        "content_chunks": [
+            "Transcript unavailable"
+        ]
+    },
+    {
+        "source_url": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+        "source_type": "youtube",
+        "author": "YouTube Channel",
+        "published_date": "Unknown",
+        "language": "unknown",
+        "region": "Unknown",
+        "topic_tags": [
+            "AI"
+        ],
+        "trust_score": 0.57,
+        "content_chunks": [
+            "Transcript unavailable"
+        ]
+    }
+]
