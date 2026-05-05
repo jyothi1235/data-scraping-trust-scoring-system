@@ -70,8 +70,9 @@ with open("output/scraped_data.json", "w", encoding="utf-8") as file:
     json.dump(all_data, file, indent=4, ensure_ascii=False)
 
 
-print("Project completed.")
-print("Check output/blogs.json")
-print("Check output/youtube.json")
-print("Check output/pubmed.json")
-print("Check output/scraped_data.json")
+print("Project completed successfully.")
+print("Blogs scraped:", len(blogs_data))
+print("YouTube videos scraped:", len(youtube_data))
+print("PubMed articles scraped:", len(pubmed_data))
+print("Total sources:", len(all_data))
+print("Check output folder.")

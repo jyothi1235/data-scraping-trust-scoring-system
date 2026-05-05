@@ -1,11 +1,12 @@
 from datetime import datetime
 
+
 def recency_score(year):
     if not year or year == "Unknown":
         return 0.5
 
     try:
-        year = int(year)
+        year = int(str(year)[:4])
         age = datetime.now().year - year
 
         if age <= 1:
@@ -21,11 +22,11 @@ def recency_score(year):
 
 
 def calculate_trust_score(
-    author_credibility,
-    citation_count,
-    domain_authority,
-    recency,
-    medical_disclaimer_presence
+    author_credibility=0.5,
+    citation_count=0.3,
+    domain_authority=0.5,
+    recency=0.5,
+    medical_disclaimer_presence=0.5
 ):
     score = (
         author_credibility * 0.25 +

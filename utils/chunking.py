@@ -1,8 +1,11 @@
 def chunk_text(text, chunk_size=120):
-    words=text.split()
-    chunks=[]
-    for i in range(0,len(words),chunk_size):
-        chunk=' '.join(words[i:i+chunk_size])
-        chunks.append(chunk)
-    return chunks    
+    if not text:
+        return []
 
+    words = text.split()
+    chunks = []
+
+    for i in range(0, len(words), chunk_size):
+        chunks.append(" ".join(words[i:i + chunk_size]))
+
+    return chunks

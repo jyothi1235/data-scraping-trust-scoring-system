@@ -5,7 +5,10 @@ from utils.chunking import chunk_text
 from utils.tagging import generate_tags
 from scoring.trust_score import calculate_trust_score, recency_score
 
+
 Entrez.email = "your_email@gmail.com"
+
+
 def scrape_pubmed(pubmed_id):
     handle = Entrez.efetch(
         db="pubmed",
@@ -13,6 +16,7 @@ def scrape_pubmed(pubmed_id):
         rettype="xml",
         retmode="xml"
     )
+
     records = Entrez.read(handle)
 
     article = records["PubmedArticle"][0]["MedlineCitation"]["Article"]
@@ -21,7 +25,7 @@ def scrape_pubmed(pubmed_id):
 
     abstract = "No abstract available"
     if "Abstract" in article:
-        abstract = " ".join(article["Abstract"]["AbstractText"])
+        abstract = " ".join([str(a) for a in article["Abstract"]["AbstractText"]])
 
     authors = []
     if "AuthorList" in article:
@@ -29,21 +33,24 @@ def scrape_pubmed(pubmed_id):
             first_name = author.get("ForeName", "")
             last_name = author.get("LastName", "")
             full_name = f"{first_name} {last_name}".strip()
-            authors.append(full_name)
+            if full_name:
+                authors.append(full_name)
+
+    journal = "Unknown Journal"
+    try:
+        journal = article["Journal"]["Title"]
+    except:
+        pass
 
     year = "Unknown"
     try:
         year = article["Journal"]["JournalIssue"]["PubDate"]["Year"]
     except:
-        year = "Unknown"
+        pass
 
-    full_content = title + ". " + abstract
+    full_content = title + " " + journal + " " + abstract
 
-    if abstract != "No abstract available":
-        language = detect(abstract)
-    else:
-        language = "unknown"
-
+    language = detect(full_content) if full_content.strip() else "unknown"
     topic_tags = generate_tags(full_content)
 
     trust_score = calculate_trust_score(
@@ -57,7 +64,10 @@ def scrape_pubmed(pubmed_id):
     return {
         "source_url": f"https://pubmed.ncbi.nlm.nih.gov/{pubmed_id}/",
         "source_type": "pubmed",
+        "title": title,
+        "description": abstract,
         "author": authors,
+        "journal": journal,
         "published_date": year,
         "language": language,
         "region": "Unknown",
